@@ -43,7 +43,7 @@ class PlgWebservicesIotapi extends CMSPlugin
 	public function onBeforeApiRoute(&$router)
 	{
 		$router->createCRUDRoutes(
-			'v1/iotapis/iotapis',
+			'v1/iotapis/devices',
 			'iotapis',
 			['component' => 'com_iotapis']
 		);
@@ -71,7 +71,7 @@ class PlgWebservicesIotapi extends CMSPlugin
 	private function createFieldsRoutes(&$router)
 	{
 		$router->createCRUDRoutes(
-			'v1/fields/iotapis/iotapis',
+			'v1/fields/iotapis/devices',
 			'fields',
 			['component' => 'com_fields', 'context' => 'com_iotapis.iotapis']
 		);
@@ -83,7 +83,7 @@ class PlgWebservicesIotapi extends CMSPlugin
 		);
 
 		$router->createCRUDRoutes(
-			'v1/fields/groups/iotapis/iotapis',
+			'v1/fields/groups/iotapis/devices',
 			'groups',
 			['component' => 'com_fields', 'context' => 'com_iotapis.iotapis']
 		);
@@ -114,9 +114,9 @@ class PlgWebservicesIotapi extends CMSPlugin
 		$getDefaults = array_merge(['public' => false], $defaults);
 
 		$routes = [
-			new Route(['GET'], 'v1/iotapis/iotapis/:id/contenthistory', 'history.displayList', ['id' => '(\d+)'], $getDefaults),
-			new Route(['PATCH'], 'v1/iotapis/iotapis/:id/contenthistory/keep', 'history.keep', ['id' => '(\d+)'], $defaults),
-			new Route(['DELETE'], 'v1/iotapis/iotapis/:id/contenthistory', 'history.delete', ['id' => '(\d+)'], $defaults),
+			new Route(['GET'], 'v1/iotapis/devices/:id/contenthistory', 'history.displayList', ['id' => '(\d+)'], $getDefaults),
+			new Route(['PATCH'], 'v1/iotapis/devices/:id/contenthistory/keep', 'history.keep', ['id' => '(\d+)'], $defaults),
+			new Route(['DELETE'], 'v1/iotapis/devices/:id/contenthistory', 'history.delete', ['id' => '(\d+)'], $defaults),
 		];
 
 		$router->addRoutes($routes);
