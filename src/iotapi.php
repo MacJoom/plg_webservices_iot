@@ -1,8 +1,8 @@
 <?php
 /**
- * Web Services - Picowapi
+ * Web Services - Iotapi
  *
- * @package    Picowapi
+ * @package    Iotapi
  *
  * @author     Martin KOPP "MacJoom" <martin.kopp@infotech.ch>
  * @copyright  Copyright(c) 2009 - 2021 Martin KOPP "MacJoom". All rights reserved
@@ -17,11 +17,11 @@ use Joomla\CMS\Router\ApiRouter;
 use Joomla\Router\Route;
 
 /**
- * Web Services adapter for com_picowapis.
+ * Web Services adapter for com_iotapis.
  *
  * @since  4.0.0
  */
-class PlgWebservicesPicowapi extends CMSPlugin
+class PlgWebservicesIotapi extends CMSPlugin
 {
 	/**
 	 * Load the language file on instantiation.
@@ -32,7 +32,7 @@ class PlgWebservicesPicowapi extends CMSPlugin
 	protected $autoloadLanguage = true;
 
 	/**
-	 * Registers com_picowapis's API's routes in the application
+	 * Registers com_iotapis's API's routes in the application
 	 *
 	 * @param   ApiRouter  &$router  The API Routing object
 	 *
@@ -43,15 +43,15 @@ class PlgWebservicesPicowapi extends CMSPlugin
 	public function onBeforeApiRoute(&$router)
 	{
 		$router->createCRUDRoutes(
-			'v1/picowapis/picowapis',
-			'picowapis',
-			['component' => 'com_picowapis']
+			'v1/iotapis/iotapis',
+			'iotapis',
+			['component' => 'com_iotapis']
 		);
 
 		$router->createCRUDRoutes(
-			'v1/picowapis/categories',
+			'v1/iotapis/categories',
 			'categories',
-			['component' => 'com_categories', 'extension' => 'com_picowapis']
+			['component' => 'com_categories', 'extension' => 'com_iotapis']
 		);
 
 		$this->createFieldsRoutes($router);
@@ -71,27 +71,27 @@ class PlgWebservicesPicowapi extends CMSPlugin
 	private function createFieldsRoutes(&$router)
 	{
 		$router->createCRUDRoutes(
-			'v1/fields/picowapis/picowapis',
+			'v1/fields/iotapis/iotapis',
 			'fields',
-			['component' => 'com_fields', 'context' => 'com_picowapis.picowapis']
+			['component' => 'com_fields', 'context' => 'com_iotapis.iotapis']
 		);
 
 		$router->createCRUDRoutes(
-			'v1/fields/picowapis/categories',
+			'v1/fields/iotapis/categories',
 			'fields',
-			['component' => 'com_fields', 'context' => 'com_picowapis.categories']
+			['component' => 'com_fields', 'context' => 'com_iotapis.categories']
 		);
 
 		$router->createCRUDRoutes(
-			'v1/fields/groups/picowapis/picowapis',
+			'v1/fields/groups/iotapis/iotapis',
 			'groups',
-			['component' => 'com_fields', 'context' => 'com_picowapis.picowapis']
+			['component' => 'com_fields', 'context' => 'com_iotapis.iotapis']
 		);
 
 		$router->createCRUDRoutes(
-			'v1/fields/groups/picowapis/categories',
+			'v1/fields/groups/iotapis/categories',
 			'groups',
-			['component' => 'com_fields', 'context' => 'com_picowapis.categories']
+			['component' => 'com_fields', 'context' => 'com_iotapis.categories']
 		);
 	}
 
@@ -108,15 +108,15 @@ class PlgWebservicesPicowapi extends CMSPlugin
 	{
 		$defaults    = [
 			'component'  => 'com_contenthistory',
-			'type_alias' => 'com_picowapis.picowapi',
+			'type_alias' => 'com_iotapis.iotapi',
 			'type_id'    => 1,
 		];
 		$getDefaults = array_merge(['public' => false], $defaults);
 
 		$routes = [
-			new Route(['GET'], 'v1/picowapis/picowapis/:id/contenthistory', 'history.displayList', ['id' => '(\d+)'], $getDefaults),
-			new Route(['PATCH'], 'v1/picowapis/picowapis/:id/contenthistory/keep', 'history.keep', ['id' => '(\d+)'], $defaults),
-			new Route(['DELETE'], 'v1/picowapis/picowapis/:id/contenthistory', 'history.delete', ['id' => '(\d+)'], $defaults),
+			new Route(['GET'], 'v1/iotapis/iotapis/:id/contenthistory', 'history.displayList', ['id' => '(\d+)'], $getDefaults),
+			new Route(['PATCH'], 'v1/iotapis/iotapis/:id/contenthistory/keep', 'history.keep', ['id' => '(\d+)'], $defaults),
+			new Route(['DELETE'], 'v1/iotapis/iotapis/:id/contenthistory', 'history.delete', ['id' => '(\d+)'], $defaults),
 		];
 
 		$router->addRoutes($routes);

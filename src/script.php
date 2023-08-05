@@ -1,6 +1,6 @@
 <?php
 /**
- * @package    Picowapi
+ * @package    Iotapi
  *
  * @author     Martin KOPP "MacJoom" <martin.kopp@infotech.ch>
  * @copyright  Copyright(c) 2009 - 2021 Martin KOPP "MacJoom". All rights reserved
@@ -13,12 +13,12 @@ use Joomla\CMS\Installer\InstallerAdapter;
 defined('_JEXEC') or die;
 
 /**
- * Picowapi script file.
+ * Iotapi script file.
  *
- * @package   Picowapi
+ * @package   Iotapi
  * @since     0.1.0
  */
-class PlgWebservicesPicowapiInstallerScript extends InstallerScript
+class PlgWebservicesIotapiInstallerScript extends InstallerScript
 {
 
     protected $minimumPhp = '7.2.5';
