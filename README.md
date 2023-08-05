@@ -1,6 +1,6 @@
-# Web Services - Picowapi
+# Web Services - iotapi
 
-Joomla! 4 webservices plugin to add routes for Picowapi component allowing to access it from external systems.
+Joomla! 4 webservices plugin to add routes for iotapi component allowing to access it from external systems.
 
 --------------------------------------------
 
